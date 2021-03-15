@@ -1,0 +1,18 @@
+-- Drops the day_planner_db if it already exists --
+DROP DATABASE IF EXISTS eatburgers_db;
+
+
+
+-- Create the database employeesDB and specified it for use.
+CREATE DATABASE eatburgers_db;
+
+USE eatburgers_db;
+
+-- Create the department Table
+CREATE TABLE burger (
+    id INT NOT NULL AUTO_INCREMENT,
+    burger_name varchar(50),
+    eaten BOOLEAN, 
+
+    PRIMARY KEY (id)
+);
