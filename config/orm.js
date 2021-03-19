@@ -8,7 +8,7 @@ const orm = {
         connection.query(queryString,
             [tableInput],
             (err, result) => {
-                if (err) {throw err;}
+                if (err) { throw err; }
                 cb(result);
             }
         );
@@ -21,23 +21,25 @@ const orm = {
             queryString,
             [table, col1, col2, val1, val2],
             (err, result) => {
-                if (err) {throw err;}
+                if (err) { throw err; }
                 cb(result);
             }
         );
     },
 
-    update(tableInput, objColVals, condition, cb) {
-        const queryString = 'UPDATE ?? SET ?? WHERE id = ?';
-        console.log(queryString);
+    updateEaten(objColVals, condition, cb) {
+        let queryString = 'UPDATE burger SET eaten = ? WHERE id = ?';
+        // console.log(queryString);
         connection.query(queryString,
-            [tableInput, objColVals, condition ],
+            [objColVals, condition],
             (err, result) => {
-                if (err) throw err;
+                if (err) {
+                    throw err;
+                }
                 cb(result);
-
-            })
-    }
+            }
+        );
+    },
 };
 
 module.exports = orm;

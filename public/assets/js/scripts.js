@@ -1,10 +1,10 @@
 
-$(".bbuttons").on("click", function() {
+$(".bbuttons").on("click", function(event) {
+    event.preventDefault()
 //   console.log("clicked");
     let buttonId = $(this).data("id")
     let eatenStatus = $(this).data("eaten")
-    console.log(!eatenStatus)
-    // frank = !frank
+    console.log(eatenStatus)
     console.log(buttonId)
 
     $.ajax("/api/burger/" + buttonId, {

@@ -11,7 +11,7 @@ const burger = {
   },
 
   update(objColVals, condition, cb) {
-    orm.update('burger', objColVals, condition, (res) => cb(res));
+    orm.updateEaten(objColVals, condition, (res) => cb(res));
   },
 };
 

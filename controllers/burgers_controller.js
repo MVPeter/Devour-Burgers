@@ -26,6 +26,18 @@ router.post('/api/burger', (req, res) => {
 // put route
 router.put('/api/burger/:id', (req, res) => {
     console.log(req.body.eaten)
+    let status = "";
+    if (req.body.eaten === "false") {
+        status = true;
+    } else {
+        status = false;
+    }
+
+    burger.update(status, req.params.id, (result) => {
+        res.status(200).end();
+    })
+    console.log("eaten " + status)
+    console.log("ID " + req.params.id)
    
     // burger.update (["burger", req.params.id ])
 })
